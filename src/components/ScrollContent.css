@@ -1,0 +1,43 @@
+.scrollContent {
+  margin: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: rgb(242, 240, 240);
+  border-radius: 15px;
+}
+
+.scrolllistWrapper {
+  display: flex;
+  min-width: 200%; /* ensures duplicated content fits */
+}
+
+.scrolllist {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 10s linear infinite;
+  -webkit-animation: scroll 10s linear infinite;
+}
+
+.scrolllist li {
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(90, 15, 230);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0); 
+  }
+  100% {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+}
+
+

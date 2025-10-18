@@ -1,0 +1,161 @@
+.img-container {
+  position: relative;
+  border: 1px solid black;
+  height: 700px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.img-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.img-container h1 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.img-container p {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 500;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.hero-btn {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 30px;
+  background-color: rgb(15, 0, 68);
+  color: beige;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hero-btn:hover {
+  background-color: black;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+
+@media (max-width: 1024px) {
+  .img-container {
+    height: 500px;
+  }
+
+  .img-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .img-container p {
+    font-size: 1.1rem;
+  }
+
+  .hero-btn {
+    top: 68%;
+    padding: 10px 25px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-container {
+    height: 450px;
+  }
+
+  .img-container h1 {
+    font-size: 2rem;
+    padding: 0 15px;
+    top: 32%;
+  }
+
+  .img-container p {
+    font-size: 1rem;
+    padding: 0 12px;
+    top: 47%;
+  }
+
+  .hero-btn {
+    top: 70%;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .img-container {
+    height: 400px;
+  }
+
+  .img-container h1 {
+    font-size: 1.6rem;
+    top: 28%;
+  }
+
+  .img-container p {
+    font-size: 0.9rem;
+    top: 45%;
+  }
+
+  .hero-btn {
+    top: 68%;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .img-container {
+    height: 350px;
+  }
+
+  .img-container h1 {
+    font-size: 1.4rem;
+  }
+
+  .img-container p {
+    font-size: 0.85rem;
+  }
+
+  .hero-btn {
+    padding: 7px 15px;
+    font-size: 0.8rem;
+  }
+}
