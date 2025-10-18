@@ -1,10 +1,10 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
 
 .navbar {
   width: 100%;
@@ -15,28 +15,33 @@
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  z-index: 100;    
+  top: 0;
+  z-index: 100;
 }
 
-.navbar ul {
+
+.navbar .logo img {
+  width: 120px;
+  margin-left: 35px;
+}
+
+
+.nav-links {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 2.5rem;
   margin-left: 30px;
-}
-.navbar li {
-  position: relative;
-  padding: 5px 0;
   transition: all 0.3s ease;
 }
 
-.navbar li:hover {
-  color: black;
+.nav-links li {
+  position: relative;
+  padding: 5px 0;
   cursor: pointer;
 }
 
-.navbar li::after {
+.nav-links li::after {
   content: "";
   position: absolute;
   width: 0;
@@ -46,18 +51,10 @@
   background-color: blue;
   border-radius: 35px;
   transition: width 0.3s ease;
-  
 }
 
-.navbar li:hover::after {
+.nav-links li:hover::after {
   width: 100%;
-}
-
-.navbar .logo img {
-  width: 120px;
-  height: auto;
-  margin-right: 10px;
-  margin-left: 35px;
 }
 
 
@@ -75,15 +72,12 @@
   cursor: pointer;
   animation: floatButton 2.5s ease-in-out infinite;
   transition: 0.3s ease;
-  -webkit-animation: floatButton 2.5s ease-in-out infinite;
 }
-
 
 @keyframes floatButton {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
 }
-
 
 .navbar button:hover {
   background-color: black;
@@ -96,23 +90,72 @@
   50% { transform: translateY(-4px); }
 }
 
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.burger.toggle span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.toggle span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
 @media (max-width: 768px) {
-  .navbar {
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: white;
+    z-index: 99;
+    transition: left 0.3s ease;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links li,
+  .nav-links button {
+    width: 80%;
+    text-align: center;
+  }
+
+  .nav-links li {
+    font-size: 1.2rem;
   }
 
   .navbar ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .navbar button {
-    margin-top: 1rem;
-    width: 100%;
-    justify-content: center;
+    margin-left: 0;
+    gap: 0;
   }
 }
